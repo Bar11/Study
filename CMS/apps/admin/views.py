@@ -1,8 +1,8 @@
 #encoding=utf-8
 
-from flask import Blueprint
+from flask import Blueprint,render_template
 bp=Blueprint('admin',__name__)
 
 @bp.route('/admin')
 def index():
-    return '这是后台首页'
+    return render_template('login.html')
