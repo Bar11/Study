@@ -5,6 +5,7 @@ from apps.common import bp as common_bp
 from exts import db
 def create_app():
         app = Flask(__name__)
+        app.config['SECRET_KEY'] = '123456'
         #注册蓝图
         app.register_blueprint(admin_bp)
         app.register_blueprint(front_bp)
