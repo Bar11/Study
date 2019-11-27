@@ -12,6 +12,7 @@ def create_validate_code(size=(120, 30),
                          fg_color=(255, 0, 0),
                          font_size=18,
                          font_type="STZHONGS.TTF",
+                         font_type2 = "Apple Symbols.ttf",# mac上的字体
                          length=4,
                          draw_points=True,
                          point_chance=2):
@@ -50,13 +51,14 @@ def create_validate_code(size=(120, 30),
         '''''绘制验证码字符'''
         c_chars = get_chars()
         strs = '%s' % ''.join(c_chars)
-
-        font = ImageFont.truetype(font_type, font_size)
+        try:
+            font = ImageFont.truetype(font_type, font_size)
+        except:
+            # 兼容mac字体
+            font = ImageFont.truetype(font_type2, font_size)
         font_width, font_height = font.getsize(strs)
-
         draw.text(((width - font_width) / 3, (height - font_height) / 4),
                   strs, font=font, fill=fg_color)
-
         return strs
 
     if draw_points:

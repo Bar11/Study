@@ -55,7 +55,7 @@
 
                     {% endif %}
 					<ul class="dropDown-menu menu radius box-shadow">
-						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+						<li><a href="{{ url_for('admin.profile') }}" onClick="myselfinfo()">个人信息</a></li>
 						<li><a href="{{ url_for('admin.login') }}">切换账户</a></li>
 						<li><a href="{{ url_for('admin.logout') }}">注销登录</a></li>
 				</ul>
